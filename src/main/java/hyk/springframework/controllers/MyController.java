@@ -1,4 +1,4 @@
-package hyk.springframework.controller;
+package hyk.springframework.controllers;
 
 import org.springframework.stereotype.Controller;
 
