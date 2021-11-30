@@ -1,9 +1,6 @@
 package hyk.springframework;
 
-import hyk.springframework.controllers.ConstructorInjectedController;
-import hyk.springframework.controllers.MyController;
-import hyk.springframework.controllers.PropertyInjectedController;
-import hyk.springframework.controllers.SetterInjectedController;
+import hyk.springframework.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -16,12 +13,17 @@ public class DiWithSpringApplication {
 
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(DiWithSpringApplication.class, args);
+        System.out.println("****************Primary Bean****************");
         /* Don't need to create controller object with new keyword
          * The Spring Framework is managing the construction of myController
          */
         MyController myController = (MyController) ctx.getBean("myController");
         String greeting = myController.sayHello();
         System.out.println(greeting);
+
+        System.out.println("****************Profile****************");
+        I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+        System.out.println(i18nController.sayHello());
 
         System.out.println("****************Property Injection****************");
         PropertyInjectedController propertyInjectedController = (PropertyInjectedController)ctx.getBean("propertyInjectedController");
