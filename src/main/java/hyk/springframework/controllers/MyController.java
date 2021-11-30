@@ -1,5 +1,6 @@
 package hyk.springframework.controllers;
 
+import hyk.springframework.services.GreetingService;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -7,7 +8,13 @@ import org.springframework.stereotype.Controller;
  */
 @Controller
 public class MyController {
-    public String sayHello() {
-        return "Hellow World !";
+    private final GreetingService greetingService;
+
+    public MyController(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
+
+    public String sayHello(){
+        return greetingService.sayGreeting();
     }
 }
