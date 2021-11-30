@@ -1,6 +1,6 @@
 package hyk.springframework.controllers;
 
-import hyk.springframework.services.GreetingServiceImpl;
+import hyk.springframework.services.ConstructorGreetingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +10,7 @@ class ConstructorInjectedControllerTest {
     @BeforeEach
     void setUp() {
         // Manual constructor injection (the most preferred method)
-        controller = new ConstructorInjectedController(new GreetingServiceImpl());
+        controller = new ConstructorInjectedController(new ConstructorGreetingService());
     }
 
     @Test
