@@ -12,6 +12,7 @@ import org.springframework.context.ApplicationContext;
 public class DiWithSpringApplication {
 
     public static void main(String[] args) {
+        // All print lines of this class will be 7th.
         ApplicationContext ctx = SpringApplication.run(DiWithSpringApplication.class, args);
         System.out.println("****************Primary Bean****************");
         /* Don't need to create controller object with new keyword
