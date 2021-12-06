@@ -1,5 +1,7 @@
 package hyk.springframework.config;
 
+import hyk.springframework.repositories.EnglishGreetingRepository;
+import hyk.springframework.repositories.EnglishGreetingRepositoryImpl;
 import hyk.springframework.services.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,10 +20,15 @@ public class GreetingServiceConfig {
         return new I18NSpanishGreetingService();
     }
 
+    @Bean
+    EnglishGreetingRepository englishGreetingRepository() {
+        return new EnglishGreetingRepositoryImpl();
+    }
+
     @Profile("EN")
     @Bean("i18nService")
-    I18NEnglishGreetingService i18NEnglishGreetingService() {
-        return new I18NEnglishGreetingService();
+    I18NEnglishGreetingService i18NEnglishGreetingService(EnglishGreetingRepository englishGreetingRepository) {
+        return new I18NEnglishGreetingService(englishGreetingRepository);
     }
 
     @Primary
@@ -29,6 +36,7 @@ public class GreetingServiceConfig {
     PrimaryGreetingService primaryGreetingService() {
         return new PrimaryGreetingService();
     }
+
     @Bean
     ConstructorGreetingService constructorGreetingService() {
         return new ConstructorGreetingService();
