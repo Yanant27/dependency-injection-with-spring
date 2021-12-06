@@ -1,6 +1,6 @@
 package hyk.springframework.controllers;
 
-import hyk.springframework.services.PetService;
+import com.springframework.pet.service.PetService;
 import org.springframework.stereotype.Controller;
 
 @Controller

@@ -1,4 +1,4 @@
-package hyk.springframework.services;
+package com.springframework.pet.service;
 
 /**
  * @author Htoo Yanant Khin

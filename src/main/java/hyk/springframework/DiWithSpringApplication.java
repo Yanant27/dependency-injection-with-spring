@@ -4,10 +4,12 @@ import hyk.springframework.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author Htoo Yanant Khin
  */
+@ComponentScan({"com.springframework.pet.service", "hyk.springframework"})
 @SpringBootApplication
 public class DiWithSpringApplication {
 
