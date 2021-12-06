@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
  */
 //@Service
 //@Qualifier
-@Profile("EN")
-@Service("i18nService")
+//@Profile("EN")
+//@Service("i18nService")
 public class I18NEnglishGreetingService implements GreetingService{
     @Override
     public String sayGreeting() {
