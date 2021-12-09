@@ -1,6 +1,8 @@
 package hyk.springframework;
 
 import hyk.springframework.controllers.*;
+import hyk.springframework.services.PrototypeBean;
+import hyk.springframework.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -36,12 +38,26 @@ public class DiWithSpringApplication {
         System.out.println("****************Property Injection****************");
         PropertyInjectedController propertyInjectedController = (PropertyInjectedController)ctx.getBean("propertyInjectedController");
         System.out.println(propertyInjectedController.sayHello());
+
         System.out.println("****************Setter Injection****************");
         SetterInjectedController setterInjectedController = (SetterInjectedController)ctx.getBean("setterInjectedController");
         System.out.println(setterInjectedController.sayHello());
+
         System.out.println("****************Constructor Injection****************");
         ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController)ctx.getBean("constructorInjectedController");
         System.out.println(constructorInjectedController.sayHello());
+
+        System.out.println("****************Singleton Bean****************");
+        SingletonBean singletonBean1 = ctx.getBean(SingletonBean.class);
+        System.out.println(singletonBean1.getMyScope());
+        SingletonBean singletonBean2 = ctx.getBean(SingletonBean.class);
+        System.out.println(singletonBean2.getMyScope());
+
+        System.out.println("****************Prototype Bean****************");
+        PrototypeBean prototypeBean1 = ctx.getBean(PrototypeBean.class);
+        System.out.println(prototypeBean1.getMyScope());
+        PrototypeBean prototypeBean2 = ctx.getBean(PrototypeBean.class);
+        System.out.println(prototypeBean2.getMyScope());
     }
 
 }
