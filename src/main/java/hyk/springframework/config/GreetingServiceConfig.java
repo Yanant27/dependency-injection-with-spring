@@ -4,7 +4,6 @@ import hyk.springframework.datasource.DataSource;
 import hyk.springframework.repositories.EnglishGreetingRepository;
 import hyk.springframework.repositories.EnglishGreetingRepositoryImpl;
 import hyk.springframework.services.*;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
 /**
@@ -48,13 +47,11 @@ public class GreetingServiceConfig {
     }
 
     @Bean
-    DataSource dataSource(@Value("${hyk.username}") String username,
-                          @Value("${hyk.password}") String password,
-                          @Value("${hyk.jdbcurl}") String jdbcurl) {
+    DataSource dataSource(AppConfig appConfig) {
         DataSource dataSource = new DataSource();
-        dataSource.setUsername(username);
-        dataSource.setPassword(password);
-        dataSource.setJdbcurl(jdbcurl);
+        dataSource.setUsername(appConfig.getUsername());
+        dataSource.setPassword(appConfig.getPassword());
+        dataSource.setJdbcurl(appConfig.getJdbcurl());
         return dataSource;
     }
 }

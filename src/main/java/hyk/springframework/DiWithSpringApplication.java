@@ -1,5 +1,6 @@
 package hyk.springframework;
 
+import hyk.springframework.config.AppConfig;
 import hyk.springframework.controllers.*;
 import hyk.springframework.datasource.DataSource;
 import hyk.springframework.services.PrototypeBean;
@@ -65,5 +66,11 @@ public class DiWithSpringApplication {
         System.out.println(dataSource.getUsername());
         System.out.println(dataSource.getPassword());
         System.out.println(dataSource.getJdbcurl());
+
+        System.out.println("****************Binding Properties****************");
+        AppConfig appConfig = ctx.getBean(AppConfig.class);
+        System.out.println(appConfig.getUsername());
+        System.out.println(appConfig.getPassword());
+        System.out.println(appConfig.getJdbcurl());
     }
 }
