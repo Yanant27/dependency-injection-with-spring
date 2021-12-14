@@ -10,7 +10,6 @@ import org.springframework.context.annotation.*;
 /**
  * @author Htoo Yanant Khin
  */
-@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:diwithspring-config.xml")
 @Configuration
 public class GreetingServiceConfig {
