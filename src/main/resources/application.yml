@@ -1,7 +1,22 @@
 spring:
   profiles:
-    active: EN, cat, qa
+    active: EN, cat, prod
 hyk:
   username: yml_user
   password: yml_password
   jdbcurl: yml_jdbcurl
+---
+spring:
+  profiles: dev
+hyk:
+  username: yml_dev_user
+  password: yml_dev_password
+  jdbcurl: yml_dev_jdbcurl
+---
+spring:
+  profiles: prod
+hyk:
+  username: yml_prod_user
+  password: yml_prod_password
+  jdbcurl: yml_prod_jdbcurl
+#"---" means that it is another profile

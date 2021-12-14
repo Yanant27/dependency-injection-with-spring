@@ -1,4 +1,4 @@
-hyk:
-  username: dev_user
-  password: dev_password
-  jdbcurl: dev_jdbcurl
+#hyk:
+#  username: dev_user
+#  password: dev_password
+#  jdbcurl: dev_jdbcurl
