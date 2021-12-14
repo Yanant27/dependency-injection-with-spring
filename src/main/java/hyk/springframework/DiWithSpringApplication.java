@@ -1,6 +1,7 @@
 package hyk.springframework;
 
 import hyk.springframework.controllers.*;
+import hyk.springframework.datasource.DataSource;
 import hyk.springframework.services.PrototypeBean;
 import hyk.springframework.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
@@ -58,6 +59,11 @@ public class DiWithSpringApplication {
         System.out.println(prototypeBean1.getMyScope());
         PrototypeBean prototypeBean2 = ctx.getBean(PrototypeBean.class);
         System.out.println(prototypeBean2.getMyScope());
-    }
 
+        System.out.println("****************Properties File****************");
+        DataSource dataSource = ctx.getBean(DataSource.class);
+        System.out.println(dataSource.getUsername());
+        System.out.println(dataSource.getPassword());
+        System.out.println(dataSource.getJdbcurl());
+    }
 }

@@ -1,13 +1,16 @@
 package hyk.springframework.config;
 
+import hyk.springframework.datasource.DataSource;
 import hyk.springframework.repositories.EnglishGreetingRepository;
 import hyk.springframework.repositories.EnglishGreetingRepositoryImpl;
 import hyk.springframework.services.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
 /**
  * @author Htoo Yanant Khin
  */
+@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:diwithspring-config.xml")
 @Configuration
 public class GreetingServiceConfig {
@@ -43,5 +46,16 @@ public class GreetingServiceConfig {
     @Bean
     PropertyGreetingService propertyGreetingService() {
         return new PropertyGreetingService();
+    }
+
+    @Bean
+    DataSource dataSource(@Value("${hyk.username}") String username,
+                          @Value("${hyk.password}") String password,
+                          @Value("${hyk.jdbcurl}") String jdbcurl) {
+        DataSource dataSource = new DataSource();
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
+        dataSource.setJdbcurl(jdbcurl);
+        return dataSource;
     }
 }
